@@ -183,3 +183,9 @@ npm start
 | Font Serif | Playfair Display | Headings, brand name |
 | Font Sans | Inter | Body text, UI elements |
 Website for baner 24k springs salon
+
+---
+
+## 📊 Live Deployment
+
+Latest deployment is live and available for testing. This site features real-time appointment booking with Google Sheets integration, ensuring a seamless luxury salon experience for clients in Baner, Pune.
