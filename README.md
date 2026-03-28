@@ -163,6 +163,51 @@ npm start
 
 ---
 
+## ☁️ Cloudflare Deployment
+
+This project is configured for deployment on **Cloudflare Workers** via [`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare).
+
+### Prerequisites
+
+- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) (included as a dev dependency)
+- A Cloudflare account — [sign up free](https://dash.cloudflare.com/sign-up)
+
+### 1. Authenticate with Cloudflare
+
+```bash
+npx wrangler login
+```
+
+### 2. Configure Environment Variables
+
+Set the required secrets in Cloudflare via the dashboard (**Workers & Pages → your worker → Settings → Variables**) or via the CLI:
+
+```bash
+npx wrangler secret put GOOGLE_CLIENT_EMAIL
+npx wrangler secret put GOOGLE_PRIVATE_KEY
+npx wrangler secret put GOOGLE_SHEET_ID
+```
+
+### 3. Build & Deploy
+
+```bash
+npm run deploy
+```
+
+This runs `opennextjs-cloudflare build` (which outputs to `.open-next/`) and then `wrangler deploy`.
+
+### 4. Preview Locally (Cloudflare runtime)
+
+```bash
+npm run preview
+```
+
+Runs the app in Wrangler's local emulator so you can test it against the Cloudflare Workers runtime before deploying.
+
+> **Note:** The `wrangler.jsonc` already includes the `nodejs_compat` compatibility flag, which is required for the Google Sheets (`googleapis`) library to work inside Cloudflare Workers.
+
+---
+
 ## 📱 Contact
 
 - **Salon:** Shop 4, Wing A, Sterling Towers, Pancard Club Rd, Near ICICI Bank, Baner, Pune 411045
