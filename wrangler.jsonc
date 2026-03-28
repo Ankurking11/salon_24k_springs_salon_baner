@@ -1,9 +1,6 @@
 {
-  "name": "salon-24k-springs-salon-baner",
+  "name": "salon-24k-springs",
   "main": ".open-next/worker.js",
   "compatibility_date": "2024-12-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": ".open-next/assets"
-  }
+  "compatibility_flags": ["nodejs_compat"]
 }
