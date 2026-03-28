@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+'use client'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+import React, { useState, useEffect, useRef } from 'react'
 
 const TIME_SLOTS = [
   '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM',
@@ -44,7 +44,7 @@ export default function Booking() {
   useEffect(() => {
     if (!form.date) { setBookedSlots([]); return }
     setSlotsLoading(true)
-    fetch(`${API_BASE}/api/appointments?date=${form.date}`)
+    fetch(`/api/appointments?date=${form.date}`)
       .then((r) => r.json())
       .then((data) => {
         setBookedSlots(data.bookedSlots || [])
@@ -73,7 +73,7 @@ export default function Booking() {
     setSubmitting(true)
     setStatus(null)
     try {
-      const res = await fetch(`${API_BASE}/api/appointments`, {
+      const res = await fetch('/api/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
